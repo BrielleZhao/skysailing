@@ -5,7 +5,7 @@
 
 
 ### 旧的文章整理
-* 【201710】Node.js、npm包管理工具 、webpack打包工具[打开](https://github.com/BrielleZhao/nana6531.github.io/edit/master/index.md)
+* 【201710】Node.js、npm包管理工具 、webpack打包工具[打开](https://briellezhao.github.io/nana6531.github.io/2017/Node.js、npm包管理工具和webpack打包工具)
 
 
 
