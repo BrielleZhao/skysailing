@@ -272,8 +272,7 @@ define(function(require, exports, module) {
 >依赖就近，延迟执行 可以很容易在 Node.js 中运行； 
 
 **缺点**：
-
 >依赖 SPM 打包，模块的加载逻辑偏重； 
-**实现**：
 
+**实现**：
 >Sea.js ；coolie 
