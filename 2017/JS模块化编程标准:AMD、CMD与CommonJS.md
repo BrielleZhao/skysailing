@@ -1,5 +1,5 @@
 ## 1.前言
-#### 本世纪以来,随着网页应用复杂化的趋势主键明显，需要一个团队分工协作、进度管理、单元测试等等。开发者不得不使用软件工程的方法，管理网页的业务逻辑。Javascript模块化编程应运而生。但是ES6标准以前的javascript本身不是支持模块化的语言，没有类（Class）和模块(Module)的概念。
+#### 本世纪以来,随着网页应用复杂化的趋势逐渐明显，需要一个团队分工协作、进度管理、单元测试等等。开发者不得不使用软件工程的方法，管理网页的业务逻辑。Javascript模块化编程应运而生。但是ES6标准以前的javascript本身不是支持模块化的语言，没有类（Class）和模块(Module)的概念。
 参考阮一峰老师的文章，js的模块化，除了常见的原始写法，对象写法，立即执行函数写法之外，还有以下几个写法值得了解：
 * 放大模式
 >如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用"放大模式"（augmentation）
@@ -170,7 +170,7 @@ define(function(require, exports, module) {
 * define(id?, deps?, factory) define可接受两个以上参数
 * define.cmd 可用于判断当前页面有无CMD 模块加载器
 > require **Function**  接受*模块标识*作为唯一参数，用来获取其他模块提供的接口
-```js
+```javascript
 define(function(require, exports) {
   // 获取模块 a 的接口
   var a = require('./a');
@@ -182,7 +182,7 @@ define(function(require, exports) {
   require.async 方法用来在模块内部异步加载模块，并在加载完成后执行指定回调。callback 参数可选。
   
 **优点**：
-```js
+```javascript
 define(function(require, exports, module) {
   // 异步加载一个模块，在加载完成时，执行回调
   require.async('./b', function(b) {
@@ -199,7 +199,7 @@ define(function(require, exports, module) {
 > require.resolve require.resolve(id)
 使用模块系统内部的路径解析机制来解析并返回模块路径。该函数不会加载模块，只返回解析后的绝对路径.
 这可以用来获取模块路径，一般用在插件环境或需动态拼接模块路径的场景下。
-```js
+```javascript
 define(function(require, exports) {
   console.log(require.resolve('./b'));
   // ==> http://example.com/path/to/b.js
@@ -208,7 +208,7 @@ define(function(require, exports) {
 ```
 > exports **Object** 是一个对象用来向外提供模块接口
 * 模块对外接口一般使用export实现
-```
+```javascript
 define(function(require, exports) {
   // 对外提供 foo 属性
   exports.foo = 'bar';
@@ -218,7 +218,7 @@ define(function(require, exports) {
 });
 ```
 * 使用 return 直接向外提供接口（公司的项目模块大多使用这种模式）
-```
+```javascript
 define(function(require) {
   // 通过 return 直接提供接口
   return {
@@ -234,7 +234,7 @@ define({
 });
 ```
 * 注意，不能直接赋值exports
-```js
+```javascript
   // 错误用法！！!
   exports = {
     foo: 'bar',
@@ -249,7 +249,7 @@ define({
 * module.dependencies  数组Array 表示当前模块的依赖
 * module.exports 当前模块对外提供的接口
 只通过 exports 参数来提供接口，有时无法满足开发者的所有需求。 比如当模块的接口是某个类的实例时，需要通过 module.exports 来实现：
-```
+```javascript
 define(function(require, exports, module) {
 
   // exports 是 module.exports 的一个引用
@@ -270,6 +270,7 @@ define(function(require, exports, module) {
 
 **优点**
 >依赖就近，延迟执行 可以很容易在 Node.js 中运行； 
+
 **缺点**：
 
 >依赖 SPM 打包，模块的加载逻辑偏重； 
