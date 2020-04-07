@@ -60,7 +60,7 @@ module.exports = {
 
 >>通过npm使用webpack在package.json内配置scripts build
 
-
+```javascript
 {
   "name": "webpack-demo",
   "version": "1.0.0",
@@ -84,7 +84,7 @@ module.exports = {
     "lodash": "^4.17.4"
   }
 }
-
+```
 >>然后, npm run build就开始使用webpack进行打包
  
 >>webpack把app/index.js为入口的一堆js打包合成为一个 bundle.js
