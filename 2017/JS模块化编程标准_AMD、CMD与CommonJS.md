@@ -95,7 +95,7 @@ require.config({
 　　});
 ```
 > 一个依赖于myLib的math.js
-```
+```javascript
 define('math',['myLib'], function(myLib){
 　　　　function foo(){
 　　　　　　myLib.doSomething();
