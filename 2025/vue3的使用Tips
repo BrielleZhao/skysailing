@@ -1,0 +1,27 @@
+# 使用v-for遍历一个可变数组
+```
+ <div v-for="(item, index) in imageList" class="img-item">
+          <img :src="item.url" :class="`${item.isLoaded ? '' : 'loading'}`" crossorigin="anonymous"/>
+  </div>
+
+```
+以上的template内容 如果想要修改index下的某个属性从而需要引起页面UI的改变，直接修改imageList.value[index]的属性是无法做到的
+```
+      imageList.value[index].url = dataUrl;
+      imageList.value[index].isLoaded = true;
+```
+
+修改后：
+```
+  <div v-for="(item, index) in imageList" :key="index" class="img-item">
+         <img :src="item.url" :class="`${item.isLoaded ? '' : 'loading'}`" crossorigin="anonymous"/>
+  </div>
+```
+
+但是如果这个数组imageList是一个顺序可变数组，那么使用index作为key显然是不符合预期的，需要选择其他的更合适的唯一不变属性作为key，例如
+
+```
+  <div v-for="(item, index) in imageList" :key="item.md5_key" class="img-item">
+         <img :src="item.url" :class="`${item.isLoaded ? '' : 'loading'}`" crossorigin="anonymous"/>
+  </div>
+```
